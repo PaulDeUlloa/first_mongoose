@@ -5,19 +5,14 @@ const app = express();
 //! Must have this at the top to access the .env file.
 require('dotenv').config();
 
-//Imports the mongoose library 
-const mongoose = require('mongoose');
+const port = process.env.PORT;
 
-// //extract variables from the .env
-const dbName = process.env.DB;
-const username = process.env.ATLAS_USERNAME;
-const pw = process.env.ATLAS_PASSWORD;
-const port = process.env.PORT
+require("./config/mongoose.config");
 
-
-console.log (dbName,username,pw)
-
-
+// app.use(express.json(), express.urlencoded({ extended: true }));
+    
+// const AllMyUserRoutes = require("./routes/user.routes");
+// AllMyUserRoutes(app);
 
 
 app.listen(port, () => console.log(`Server is up on port ${port}`))
